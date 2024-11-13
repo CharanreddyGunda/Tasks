@@ -1,22 +1,14 @@
-package com.tekworks;
+package com.tekworks.day_3;
 
-import java.util.HashSet;
-import java.util.Set;
-
-//1743. Restore the Array From Adjacent Pairs
+//151. Reverse Words in a String
 public class Solution {
-    public int[] restoreArray(int[][] adjacentPairs) {
-        Set<Integer> set = new HashSet<>();
-        for(int i=0 ; i<adjacentPairs.length; i++) {
-            for(int n : adjacentPairs[i]) {
-                set.add(n);
-            }
+    public String reverseWords(String s) {
+        String[] words = s.split("\\s+");
+        StringBuilder reverseWords = new StringBuilder();
+        for(int i=words.length-1 ; i>=0 ; i--) {
+            reverseWords.append(words[i]+" ");
         }
-        int[] nums = new int[set.size()];
-        int index = 0;
-        for(Integer n : set) {
-            nums[index++] = n;
-        }
-        return nums;
+        reverseWords.deleteCharAt(reverseWords.length()-1);
+        return reverseWords.toString().trim();
     }
 }
